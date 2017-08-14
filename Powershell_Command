@@ -1,0 +1,1 @@
+invoke-command -ThrottleLimit 60 -credential rocket1\artadmin -computerName (get-content machines.txt) -ScriptBlock {mv C:\RFTworkspace\AdminOCProj\batch\ant_deploy.bat C:\RFTworkspace\AdminOCProj\batch\ant_deploy.bat.bak}
