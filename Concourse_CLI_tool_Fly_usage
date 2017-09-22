@@ -1,0 +1,16 @@
+# Pre-req: copy fly.exe to a location which in $PATH environment variable.
+
+#Login to Concourse
+fly --target aoc login --concourse-url http://wal-vm-db2ci01 --team-name aoc --username *** --password ***
+
+# Set up/update a pipeline hello_yrj. The config file hello.yml should be in the current cmd directory.
+fly --target aoc set-pipeline --pipeline hello_yrj --config hello.yml
+
+# The pipeline is paused after it is set up. Need to unpause it before it run.
+fly --target aoc expose-pipeline --pipeline hello_yrj
+
+# Make a pipeline publicly viewable
+fly --target aoc expose-pipeline --pipeline hello_yrj
+
+# Destroy the pipeline
+fly --target aoc destroy-pipeline --pipeline hello_yrj
